@@ -1,0 +1,47 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <FileVersion>1.0.0.0</FileVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3f95d0bb-692a-4d12-87cf-99b787a46e79}</ProjectGuid>
+    <SubObjectsSortedByName>True</SubObjectsSortedByName>
+    <DownloadApplicationInfo>true</DownloadApplicationInfo>
+    <WriteProductVersion>true</WriteProductVersion>
+    <GenerateTpy>false</GenerateTpy>
+    <Name>MAS418_PLC</Name>
+    <ProgramVersion>3.1.4023.0</ProgramVersion>
+    <Application>{6ee20cad-9c97-4091-bb71-2455cd9e6f3f}</Application>
+    <TypeSystem>{fdeae481-c176-4307-8e67-6ff5f4979f78}</TypeSystem>
+    <Implicit_Task_Info>{69812078-c957-4cae-b023-130060e4741a}</Implicit_Task_Info>
+    <Implicit_KindOfTask>{b021c933-4a41-44b0-bc60-62a95c80fe1a}</Implicit_KindOfTask>
+    <Implicit_Jitter_Distribution>{82bf07d4-1cc6-4d3d-8ae1-db37735d102a}</Implicit_Jitter_Distribution>
+    <LibraryReferences>{8111611d-e7d9-49c6-9adf-93f9f08bdafa}</LibraryReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DUTs" />
+    <Folder Include="GVLs" />
+    <Folder Include="VISUs" />
+    <Folder Include="POUs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PlaceholderReference Include="Tc2_Standard">
+      <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_System">
+      <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_System</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_Module">
+      <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+  </ItemGroup>
+</Project>
