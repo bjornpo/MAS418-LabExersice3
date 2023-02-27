@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GlobalTextList Name="GlobalTextList" Id="{be5372ab-ff1c-4615-9c5c-336b0d65517e}">
+    <XmlArchive>
+      <Data>
+        <o xml:space="preserve" t="GlobalTextListObject">
+          <l n="TextList" t="ArrayList" cet="TextListRow">
+            <o>
+              <v n="TextID">"610"</v>
+              <v n="TextDefault">""JOY\nTopSwitch""</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"786"</v>
+              <v n="TextDefault">"%s"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"277"</v>
+              <v n="TextDefault">"AUTO"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"56"</v>
+              <v n="TextDefault">"Auto"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"308"</v>
+              <v n="TextDefault">"ControlBox"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"504"</v>
+              <v n="TextDefault">"JOYTopSwitch"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"507"</v>
+              <v n="TextDefault">"JOY\nTopSwitch"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"846"</v>
+              <v n="TextDefault">"JOY_TopSwitch"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"460"</v>
+              <v n="TextDefault">"JOY_X"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"698"</v>
+              <v n="TextDefault">"JOY_Y"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"914"</v>
+              <v n="TextDefault">"MANUAL"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"767"</v>
+              <v n="TextDefault">"Manuel"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"731"</v>
+              <v n="TextDefault">"Mode"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"179"</v>
+              <v n="TextDefault">"Mode Selector"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"157"</v>
+              <v n="TextDefault">"Mode:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"874"</v>
+              <v n="TextDefault">"OFF"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"683"</v>
+              <v n="TextDefault">"Off"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"787"</v>
+              <v n="TextDefault">"Selector switch"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"113"</v>
+              <v n="TextDefault">"START"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"214"</v>
+              <v n="TextDefault">"Status:"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"682"</v>
+              <v n="TextDefault">"STOP"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+          </l>
+          <l n="Languages" t="ArrayList" />
+          <v n="GuidInit">{1bef8b98-706a-4ff0-bac5-650d05c6e455}</v>
+          <v n="GuidReInit">{7266b422-d6bc-4980-827a-91f5509aba40}</v>
+          <v n="GuidExitX">{6d91cc54-2685-4f07-bd5e-001964fa2d46}</v>
+        </o>
+      </Data>
+      <TypeList>
+        <Type n="ArrayList">System.Collections.ArrayList</Type>
+        <Type n="GlobalTextListObject">{63784cbb-9ba0-45e6-9d69-babf3f040511}</Type>
+        <Type n="Guid">System.Guid</Type>
+        <Type n="String">System.String</Type>
+        <Type n="TextListRow">{53da1be7-ad25-47c3-b0e8-e26286dad2e0}</Type>
+      </TypeList>
+    </XmlArchive>
+  </GlobalTextList>
+</TcPlcObject>

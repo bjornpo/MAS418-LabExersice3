@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="CraneControl" Id="{2a714290-3efe-48f5-94ae-768c00e23831}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM CraneControl
+VAR
+	fbControlBox : FB_VirtualControlBox;
+	//eMode : E_Mode;
+	//eStatus : E_Status := E_Status.NotReady;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbControlBox.Mode(
+	bAuto := VirtualControlBox.bAuto, 
+	bManual := VirtualControlBox.bManual,
+	eMode => VirtualControlBox.eMode
+);
+
+fbControlBox.Status(
+	eMode := VirtualControlBox.eMode,
+	bStart := VirtualControlBox.bSTART,
+	bStop := VirtualControlBox.bSTOP,
+	eStatus => VirtualControlBox.eStatus
+	);
+	
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

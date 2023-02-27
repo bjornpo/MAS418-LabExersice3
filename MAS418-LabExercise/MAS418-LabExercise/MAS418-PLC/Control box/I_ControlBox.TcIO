@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="I_ControlBox" Id="{c76e7eff-2ed6-4c3a-9164-4703bd147633}">
+    <Declaration><![CDATA[INTERFACE I_ControlBox
+	
+]]></Declaration>
+    <Method Name="Joystick" Id="{7a014413-c7a1-4efd-907e-c3f36f0882dc}">
+      <Declaration><![CDATA[METHOD Joystick
+VAR_INPUT
+	stJoystick : ST_Joystick;
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Mode" Id="{db9fe4e7-38a2-411c-b8fc-9f557729bb4b}">
+      <Declaration><![CDATA[METHOD Mode
+VAR_INPUT
+	bAuto : BOOL;
+	bManual : BOOL;
+	//eMode	: E_Mode; //should I read this value Directly from the VirtualControlBox?
+END_VAR
+VAR_OUTPUT
+	eMode : E_Mode;
+END_VAR]]></Declaration>
+    </Method>
+    <Method Name="Status" Id="{034ad856-2123-467c-a457-0efba0a4de33}">
+      <Declaration><![CDATA[METHOD Status
+VAR_INPUT
+	eMode	: E_Mode;
+	bStart	: BOOL;
+	bStop	: BOOL;
+END_VAR
+VAR_OUTPUT
+	eStatus : E_Status := E_Status.NotReady;
+END_VAR]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>

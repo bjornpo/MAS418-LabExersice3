@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_ModeSelector" Id="{3399322c-221a-4211-a48b-e9157a0453b6}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_ModeSelector
+VAR_INPUT
+	//bControlBox : BOOL;
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	fbModeVisualization : FB_ModeVisualization;
+	fbModeControlBox : FB_ModeControlBox;
+	fbMode : I_Mode := fbModeVisualization;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

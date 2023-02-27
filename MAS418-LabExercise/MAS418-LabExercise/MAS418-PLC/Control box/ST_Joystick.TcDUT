@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_Joystick" Id="{09d160ef-feca-42b6-af40-0a2998438d03}">
+    <Declaration><![CDATA[TYPE ST_Joystick :
+STRUCT
+	X : REAL;
+	Y : REAL;
+	Topswitch : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>
