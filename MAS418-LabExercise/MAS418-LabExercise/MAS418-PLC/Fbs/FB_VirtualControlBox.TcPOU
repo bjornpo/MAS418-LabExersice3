@@ -38,7 +38,7 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[stJoystick := VirtualControlBox.stJOY;
-INPUT.stJoystick := stJoystick;]]></ST>
+ScaledInputs.stJoystick := stJoystick;]]></ST>
       </Implementation>
     </Method>
     <Method Name="Mode" Id="{2f785f0e-97f8-462b-9ade-1633aef6ec69}">

@@ -3,13 +3,38 @@
   <GVL Name="INPUT" Id="{007293b3-fdf6-41fe-bba9-66bdde70b7fa}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	stJoystick : ST_Joystick;
+	nJoyXRaw : INT;
+	nJoyYRaw : INT;
+	bJoySW 	: BOOL;
+	
+	//Digital
+	bManual AT %I*: BOOL;
+	bAuto AT %I*: BOOL;
+	bStart AT %I*: BOOL;
+	bStop AT %I*: BOOL;
+	bJoystick AT %I*: BOOL;
+	
+	//Analog Flow/pressure
+	nPS AT %I*: INT;
+	nPR AT %I*: INT;
+	nPC_B  AT %I*: INT;
+	nPC_A  AT %I*: INT;
+	nPW_A1  AT %I*: INT;
+	nPW_B1 AT %I*: INT;
+	nPW_A AT %I*: INT;
+	nPW_B AT %I*: INT;
+	nPW_D AT %I*: INT;
+	nQW AT %I*: INT;
+	
+	//Analog 
+	nXc AT %I*: INT;
+	//nJoy
 	
 	fCylinderPositionSensor : REAL;
 	fWinchEncodder : REAL;
 	stPressureSensors : ST_PressureSensors;
 	WinchInletFlow : REAL;
-	
+	//I
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

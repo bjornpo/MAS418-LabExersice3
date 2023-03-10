@@ -3,6 +3,7 @@
   <GVL Name="ScaledInputs" Id="{19b8477b-b11f-4038-8252-32f47cdce75c}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
+	stJoystick : ST_Joystick;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

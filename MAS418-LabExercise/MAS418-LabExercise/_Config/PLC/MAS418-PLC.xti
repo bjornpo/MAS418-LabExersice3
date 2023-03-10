@@ -1,9 +1,108 @@
 <?xml version="1.0"?>
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" ClassName="CNestedPlcProjDef">
 	<Project GUID="{3F95D0BB-692A-4D12-87CF-99B787A46E79}" Name="MAS418-PLC" PrjFilePath="..\..\MAS418-PLC\MAS418-PLC.plcproj" TmcFilePath="..\..\MAS418-PLC\MAS418-PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="MAS418-PLC\MAS418-PLC.tmc" TmcHash="{B45DE925-D03D-50C9-D628-EE25A6D3E364}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="MAS418-PLC\MAS418-PLC.tmc" TmcHash="{A41D687A-A844-82AD-5918-B7E0D4356F09}">
 			<Name>MAS418-PLC Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Vars VarGrpType="1">
+				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>INPUT.bManual</Name>
+					<Comment><![CDATA[Digital]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.bAuto</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.bStart</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.bStop</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.bJoystick</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPS</Name>
+					<Comment><![CDATA[Analog Flow/pressure]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPR</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPC_B</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPC_A</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPW_A1</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPW_B1</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPW_A</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPW_B</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nPW_D</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nQW</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nXc</Name>
+					<Comment><![CDATA[Analog ]]></Comment>
+					<Type>INT</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="2" AreaNo="1">
+				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>OUTPUTS.bGreenLed</Name>
+					<Comment><![CDATA[Digital]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>OUTPUTS.bRedLed</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>OUTPUTS.bEnableWinchValve</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>OUTPUTS.bEnableCylValve</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>OUTPUTS.nWinchValveOut</Name>
+					<Comment><![CDATA[Analog]]></Comment>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>OUTPUTS.nCylValveOut</Name>
+					<Type>INT</Type>
+				</Var>
+			</Vars>
 			<Contexts>
 				<Context>
 					<Id NeedCalleeCall="true">0</Id>
@@ -20,4 +119,11 @@
 			</TaskPouOids>
 		</Instance>
 	</Project>
+	<Mappings>
+		<OwnerA Name="MAS418-PLC Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1100-0008)^Term 3 (EL1008)">
+				<Link VarA="PlcTask Inputs^INPUT.bManual" VarB="Channel 1^Input" Size="1"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
 </TcSmItem>

@@ -29,10 +29,19 @@
     <Compile Include="DUTs\ST_Joystick.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DUTs\ST_JoystickInputScaling.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\ST_Params.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\ST_Position.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DUTs\ST_PressureSensors.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\ST_ValveDeadBand.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Fbs\FB_ControlBox.TcPOU">
@@ -41,10 +50,16 @@
     <Compile Include="Fbs\FB_Encoder.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Fbs\FB_JoystickInputScaling.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Fbs\FB_RealControlBox_.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Fbs\FB_12bIntToReal.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fbs\FB_ValveOutput.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Fbs\FB_VirtualControlBox.TcPOU">
@@ -62,6 +77,10 @@
       <LinkAlways>true</LinkAlways>
     </Compile>
     <Compile Include="GVLs\OUTPUTS.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\ScaledInputs.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>

@@ -7,6 +7,17 @@ VAR_GLOBAL
 	bLightGreen : BOOL := FALSE;
 	CylinderValve : REAL := 0; //initial value
 	WinchValve : REAL := 0; //initial value
+	
+	//Digital
+	bGreenLed AT %Q*: BOOL;
+	bRedLed AT %Q*: BOOL;
+	bEnableWinchValve AT %Q*: BOOL;
+	bEnableCylValve AT %Q*: BOOL;
+	
+	//Analog
+	nWinchValveOut AT %Q*: INT;
+	nCylValveOut AT %Q*: INT;
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

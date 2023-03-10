@@ -4,13 +4,13 @@
     <Declaration><![CDATA[TYPE ST_JoystickInputScaling :
 STRUCT
 	
-    fMaxInputValue := 20509.0
-    fMinInputValue := 11787.0
-    fNeutralInputValue := 16175
-    fNeutralDeadband := 50.0
-    fMaxOutputValue := 1.0
-    fMinOutputValue := -1.0
-    fNeutralOutputValue := 0.0
+    fMaxInputValue : LREAL := 20509.0;
+    fMinInputValue : LREAL := 11787.0;
+    fNeutralInputValue : LREAL := 16175;
+    fNeutralDeadband : LREAL := 50.0;
+    fMaxOutputValue : LREAL := 1.0;
+    fMinOutputValue : LREAL := -1.0;
+    fNeutralOutputValue : LREAL := 0.0;
 
 END_STRUCT
 END_TYPE

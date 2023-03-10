@@ -18,10 +18,17 @@ METHOD Joystick
 VAR_OUTPUT
 	stJoystick	: ST_Joystick;
 END_VAR
+VAR
+	fbJoystickInputScaling : FB_JoystickInputScaling;
+	nXInput: INT;
+	nYInput: INT;
+END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[stJoystick := VirtualControlBox.stJOY;
-INPUT.stJoystick := stJoystick;]]></ST>
+ScaledInputs.stJoystick := stJoystick;
+
+//ScaledInputs.stJoystick.X := ]]></ST>
       </Implementation>
     </Method>
     <Method Name="Mode" Id="{ce8733aa-10d3-4163-8520-025fe01b837c}">

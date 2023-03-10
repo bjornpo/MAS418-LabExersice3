@@ -5,7 +5,8 @@
 VAR_GLOBAL
 	fDrumD : REAL := 0.475; //m
 	fGearRatio : REAL := 1/20;
-	fMdisplacement	: REAL := 
+	//fMdisplacement	: REAL := 
+	
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>
