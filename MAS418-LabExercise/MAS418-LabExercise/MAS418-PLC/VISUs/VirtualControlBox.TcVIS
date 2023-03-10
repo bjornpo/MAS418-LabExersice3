@@ -227,19 +227,19 @@
                       <l n="VisualElemMemberList" t="VisualElemMemberCollection" cet="VisualElemMember">
                         <o>
                           <v n="Id">1404881523L</v>
-                          <v n="Value" t="Single">0</v>
+                          <v n="Value" t="Single">-1</v>
                         </o>
                         <o>
                           <v n="Id">3837067714L</v>
-                          <v n="Value" t="Single">100</v>
+                          <v n="Value" t="Single">1</v>
                         </o>
                         <o>
                           <v n="Id">2867424708L</v>
-                          <v n="Value" t="Single">10</v>
+                          <v n="Value" t="Single">0</v>
                         </o>
                         <o>
                           <v n="Id">440407611L</v>
-                          <v n="Value" t="Single">5</v>
+                          <v n="Value" t="Single">0.2</v>
                         </o>
                         <o>
                           <v n="Id">2608923542L</v>
@@ -332,6 +332,14 @@
                         <o>
                           <v n="Id">397264524L</v>
                           <v n="Value">"VirtualControlBox.stJOY.X"</v>
+                        </o>
+                        <o>
+                          <v n="Id">3352862552L</v>
+                          <v n="Value">false</v>
+                        </o>
+                        <o>
+                          <v n="Id">681815230L</v>
+                          <v n="Value">false</v>
                         </o>
                       </l>
                     </o>
@@ -728,7 +736,7 @@
                         </o>
                         <o>
                           <v n="Id">2477733581L</v>
-                          <v n="Value">"VirtualControlBox.strMode"</v>
+                          <v n="Value">"Working.strMode"</v>
                         </o>
                         <o>
                           <v n="Id">823443203L</v>
@@ -1858,7 +1866,7 @@
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"VirtualControlBox.bSTOP"</v>
+                          <v n="Value">"OUTPUTS.bLightRed"</v>
                         </o>
                       </l>
                     </o>
@@ -1952,7 +1960,7 @@
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"VirtualControlBox.bSTART"</v>
+                          <v n="Value">"OUTPUTS.bLightGreen"</v>
                         </o>
                       </l>
                     </o>
@@ -3006,7 +3014,7 @@
                     </o>
                     <o>
                       <v n="Id">2477733581L</v>
-                      <v n="Value">"VirtualControlBox.strStatus"</v>
+                      <v n="Value">"Working.strStatus"</v>
                     </o>
                     <o>
                       <v n="Id">823443203L</v>

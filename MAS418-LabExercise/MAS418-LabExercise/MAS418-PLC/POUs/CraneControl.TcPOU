@@ -3,25 +3,33 @@
   <POU Name="CraneControl" Id="{2a714290-3efe-48f5-94ae-768c00e23831}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM CraneControl
 VAR
-	fbControlBox : FB_VirtualControlBox;
+	fbControlBox : FB_ControlBox;
 	//eMode : E_Mode;
 	//eStatus : E_Status := E_Status.NotReady;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbControlBox.Mode(
-	bAuto := VirtualControlBox.bAuto, 
-	bManual := VirtualControlBox.bManual,
-	eMode => VirtualControlBox.eMode
-);
+      <ST><![CDATA[fbControlBox(eControlBox := E_ControlBox.VirtualControlBox); // set to true to use real controlbox
 
-fbControlBox.Status(
-	eMode := VirtualControlBox.eMode,
-	bStart := VirtualControlBox.bSTART,
-	bStop := VirtualControlBox.bSTOP,
-	eStatus => VirtualControlBox.eStatus
-	);
-	
+IF Working.eStatus = E_Status.Running THEN
+	// manual run
+	IF Working.eMode = E_Mode.MANUAL THEN
+		IF INPUT.stJoystick.Topswitch THEN
+			OUTPUTS.fValveX := INPUT.stJoystick.X;
+			OUTPUTS.fValveY := INPUT.stJoystick.Y;
+		ELSE
+			OUTPUTS.fValveX := INPUT.stJoystick.X;
+			OUTPUTS.fValveY := 0; // ENUM YValue stop
+		END_IF
+	//Auto Run
+	ELSIF Working.eMode = E_Mode.AUTO THEN
+		
+	END_IF
+ELSE
+	//Turn off OUTPUTS
+	OUTPUTS.fValveX := 0;
+	OUTPUTS.fValveY := 0;
+END_IF
 ]]></ST>
     </Implementation>
   </POU>

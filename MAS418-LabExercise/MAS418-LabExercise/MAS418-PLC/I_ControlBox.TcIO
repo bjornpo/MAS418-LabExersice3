@@ -7,6 +7,9 @@
     <Method Name="Joystick" Id="{7a014413-c7a1-4efd-907e-c3f36f0882dc}">
       <Declaration><![CDATA[METHOD Joystick
 VAR_INPUT
+	//stJoystick : ST_Joystick;
+END_VAR
+VAR_OUTPUT
 	stJoystick : ST_Joystick;
 END_VAR
 ]]></Declaration>
@@ -14,8 +17,8 @@ END_VAR
     <Method Name="Mode" Id="{db9fe4e7-38a2-411c-b8fc-9f557729bb4b}">
       <Declaration><![CDATA[METHOD Mode
 VAR_INPUT
-	bAuto : BOOL;
-	bManual : BOOL;
+	//bAuto : BOOL;
+	//bManual : BOOL;
 	//eMode	: E_Mode; //should I read this value Directly from the VirtualControlBox?
 END_VAR
 VAR_OUTPUT
@@ -25,12 +28,12 @@ END_VAR]]></Declaration>
     <Method Name="Status" Id="{034ad856-2123-467c-a457-0efba0a4de33}">
       <Declaration><![CDATA[METHOD Status
 VAR_INPUT
-	eMode	: E_Mode;
-	bStart	: BOOL;
-	bStop	: BOOL;
+	//eMode	: E_Mode;
+	//bStart	: BOOL;
+	//bStop	: BOOL;
 END_VAR
 VAR_OUTPUT
-	eStatus : E_Status := E_Status.NotReady;
+	//eStatus : E_Status := E_Status.NotReady;
 END_VAR]]></Declaration>
     </Method>
   </Itf>

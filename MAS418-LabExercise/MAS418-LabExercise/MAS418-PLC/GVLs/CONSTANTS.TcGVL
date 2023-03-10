@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <GVL Name="OUTPUTS" Id="{f05c9dff-8b1b-4b3d-9ed0-00bb52c26cf3}">
+  <GVL Name="CONSTANTS" Id="{6656d0c1-0201-436e-b64b-6c1a30486286}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	bLightRed : BOOL := FALSE;
-	bLightGreen : BOOL := FALSE;
-	CylinderValve : REAL := 0; //initial value
-	WinchValve : REAL := 0; //initial value
+	fDrumD : REAL := 0.475; //m
+	fGearRatio : REAL := 1/20;
+	fMdisplacement	: REAL := 
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

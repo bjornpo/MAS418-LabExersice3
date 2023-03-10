@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <DUT Name="Selector_switch" Id="{4ac13029-4599-4b52-9cba-4ffdd031aef1}">
+  <DUT Name="E_ControlBox" Id="{6fc44080-44ea-4649-9e9d-2d97c55e4109}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 {attribute 'strict'}
-TYPE Selector_switch :
+TYPE E_ControlBox :
 (
-	enum_member := 0
+	VirtualControlBox,
+	RealControlBox
 );
 END_TYPE
 ]]></Declaration>

@@ -17,38 +17,67 @@
     <LibraryReferences>{8111611d-e7d9-49c6-9adf-93f9f08bdafa}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Control box\FB_ModeSelector.TcPOU">
+    <Compile Include="DUTs\E_ControlBox.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control box\VirtualControlBox.TcVIS">
-      <SubType>Code</SubType>
-      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
-    </Compile>
-    <Compile Include="Control box\E_Mode.TcDUT">
+    <Compile Include="DUTs\E_Mode.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control box\E_Status.TcDUT">
+    <Compile Include="DUTs\E_Status.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control box\FB_VirtualControlBox.TcPOU">
+    <Compile Include="DUTs\ST_Joystick.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control box\GVL\VirtualControlBox.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
-    <Compile Include="Control box\I_ControlBox.TcIO">
+    <Compile Include="DUTs\ST_Position.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control box\ST_Joystick.TcDUT">
+    <Compile Include="DUTs\ST_PressureSensors.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fbs\FB_ControlBox.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fbs\FB_Encoder.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fbs\FB_RealControlBox_.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fbs\FB_12bIntToReal.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Fbs\FB_VirtualControlBox.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GVLs\CONSTANTS.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\INPUT.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
     <Compile Include="GVLs\OUTPUTS.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\VirtualControlBox.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\Working.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="I_ControlBox.TcIO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="I_Crane.TcIO">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="PlcTask.TcTTO">
       <SubType>Code</SubType>
@@ -62,12 +91,15 @@
     <Compile Include="Visualization Manager.TcVMO">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="VISUs\VirtualControlBox.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>Visualization Manager.TcVMO</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Control box\GVL" />
     <Folder Include="DUTs" />
     <Folder Include="GVLs" />
-    <Folder Include="Control box" />
+    <Folder Include="Fbs" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
   </ItemGroup>

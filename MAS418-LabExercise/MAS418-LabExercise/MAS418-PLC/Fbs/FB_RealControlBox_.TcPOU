@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FB_RealControlBox_" Id="{7323167f-e5d9-471f-b5aa-43d61f819cac}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RealControlBox_ IMPLEMENTS I_ControlBox
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="Joystick" Id="{b04946fb-80fe-49f9-8705-7d764bf318a8}">
+      <Declaration><![CDATA[{warning 'add method implementation '}
+METHOD Joystick
+VAR_OUTPUT
+	stJoystick	: ST_Joystick;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[stJoystick := VirtualControlBox.stJOY;
+INPUT.stJoystick := stJoystick;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Mode" Id="{ce8733aa-10d3-4163-8520-025fe01b837c}">
+      <Declaration><![CDATA[{warning 'add method implementation '}
+METHOD Mode
+VAR_OUTPUT
+	eMode	: E_Mode;
+END_VAR
+VAR
+	//eMode : E_Mode;
+	bAuto : BOOL;
+	bManual : BOOL;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//eMode := VirtualControlBox.eMode;
+//OUTPUTS.eMode := eMode;
+
+bAuto := VirtualControlBox.bAuto;
+bManual := VirtualControlBox.bManual;
+
+
+IF bAuto AND NOT bManual THEN
+	eMode := E_Mode.AUTO;
+	Working.strMode := 'AUTO';
+ELSIF bManual AND NOT bAuto THEN
+	eMode := E_Mode.MANUAL;
+	Working.strMode := 'MANUAL';
+ELSE
+	eMode := E_Mode.OFF;
+	Working.strMode := 'OFF';
+END_IF
+
+Working.eMode := eMode;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Status" Id="{b6e4b7a9-c6a1-4b1e-8a41-7c10228b2ace}">
+      <Declaration><![CDATA[{warning 'add method implementation '}
+METHOD Status
+VAR
+	eStatus : E_Status;
+	eMode : E_Mode;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[eMode := Working.eMode;
+eStatus := Working.eStatus;
+CASE eStatus OF
+	E_Status.NotReady:
+		Working.strStatus := 'NotReady';
+		IF eMode <> E_Mode.OFF THEN
+			eStatus := E_Status.Ready;
+		END_IF
+	
+	E_Status.Ready:
+		Working.strStatus := 'Ready';
+		IF eMode = E_Mode.OFF THEN
+			eStatus := E_Status.NotReady;
+		ELSIF VirtualControlBox.bStart THEN
+			eStatus := E_Status.Starting;
+		END_IF
+		
+	E_Status.Starting:
+		Working.strStatus := 'Starting';
+		IF VirtualControlBox.bStart AND NOT VirtualControlBox.bStop THEN //Add more start conditions?
+			eStatus := E_Status.Running;	
+		ELSE
+			eStatus := E_Status.Ready;
+		END_IF
+		
+	E_Status.Running:	
+		Working.strStatus := 'Running';
+		IF VirtualControlBox.bStop THEN
+			eStatus := E_Status.Stopping;
+		ELSIF eMode = E_Mode.AUTO THEN
+			IF NOT VirtualControlBox.bStart THEN // ADD Clock signal
+				eStatus := E_Status.Stopping;
+			END_IF	
+		END_IF
+		
+	E_Status.Stopping:
+		Working.strStatus := 'Stopping';
+		//Add stop condition
+		eStatus := E_Status.NotReady;
+		
+	E_Status.Fault:
+		Working.strStatus := 'Fault';				
+END_CASE
+
+Working.eStatus := eStatus;
+
+//Control Lights
+IF eStatus = E_Status.Running THEN
+	OUTPUTS.bLightGreen := TRUE;
+ELSE
+	OUTPUTS.bLightGreen := FALSE;
+END_IF
+
+IF eStatus = E_Status.Stopping OR eStatus = E_Status.Fault THEN
+	OUTPUTS.bLightRed := TRUE;
+ELSE
+	OUTPUTS.bLightRed := FALSE;
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

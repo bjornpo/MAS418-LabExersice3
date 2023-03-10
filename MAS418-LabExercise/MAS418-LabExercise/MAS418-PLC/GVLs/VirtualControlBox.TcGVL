@@ -5,16 +5,16 @@
 VAR_GLOBAL
 	bSTOP : BOOL := FALSE;
 	bSTART : BOOL := FALSE;
-	bLightRed : BOOL := FALSE;
-	bLightGreen : BOOL := FALSE;
+	//bLightRed : BOOL := FALSE;
+	//bLightGreen : BOOL := FALSE;
 	bAuto : BOOL;
 	bManual : BOOL;
 	stJOY : ST_Joystick;
 	//eMode : E_Mode;// := E_Mode.OFF;
-	strMode : STRING;
-	strStatus : STRING;
-	eStatus : E_Status;// := E_Status.NotReady;
-	eMode : E_Mode;// := E_Mode.OFF;
+	//strMode : STRING;
+	//strStatus : STRING;
+	//eStatus : E_Status;// := E_Status.NotReady;
+	//eMode : E_Mode;// := E_Mode.OFF;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -1,12 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
-  <GVL Name="OUTPUTS" Id="{f05c9dff-8b1b-4b3d-9ed0-00bb52c26cf3}">
+  <GVL Name="ScaledInputs" Id="{19b8477b-b11f-4038-8252-32f47cdce75c}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	bLightRed : BOOL := FALSE;
-	bLightGreen : BOOL := FALSE;
-	CylinderValve : REAL := 0; //initial value
-	WinchValve : REAL := 0; //initial value
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_Position" Id="{f9e68524-44c4-40ba-8917-1965bea20b0f}">
+    <Declaration><![CDATA[TYPE ST_Position :
+STRUCT
+	winch : REAL;
+	cylinder : REAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

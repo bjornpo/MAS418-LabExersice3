@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="ST_PressureSensors" Id="{6f62bb1d-0d9d-4278-becd-1485d053d9a7}">
+    <Declaration><![CDATA[TYPE ST_PressureSensors :
+STRUCT
+	SupplyPres : REAL;
+	ReturnPres : REAL;
+	CylPistSide : REAL;
+	CylRodSide : REAL;
+	WinchInlet : REAL;
+	WinchInlet2 : REAL;
+	WinchOutlet : REAL;
+	WinchOutlet2 : REAL;
+	WinchDrain : REAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

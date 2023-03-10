@@ -10,25 +10,43 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[//fbControlBox.Mode(
+//	bAuto := VirtualControlBox.bAuto, 
+//	bManual := VirtualControlBox.bManual,
+//	eMode => VirtualControlBox.eMode
+//);
+
+//fbControlBox.Status(
+//	eMode := VirtualControlBox.eMode,
+//	bStart := VirtualControlBox.bSTART,
+//	bStop := VirtualControlBox.bSTOP,
+//	eStatus => VirtualControlBox.eStatus
+//	);]]></ST>
     </Implementation>
     <Method Name="Joystick" Id="{5c488d52-6137-4781-8107-dc07e6a5f808}">
       <Declaration><![CDATA[{warning 'add method implementation '}
 METHOD Joystick
 VAR_INPUT
-	stJoystick	: ST_Joystick;
+	//stJoystick	: ST_Joystick;
+END_VAR
+VAR_OUTPUT
+	stJoystick : ST_Joystick;
+END_VAR
+VAR
+	
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[]]></ST>
+        <ST><![CDATA[stJoystick := VirtualControlBox.stJOY;
+INPUT.stJoystick := stJoystick;]]></ST>
       </Implementation>
     </Method>
     <Method Name="Mode" Id="{2f785f0e-97f8-462b-9ade-1633aef6ec69}">
       <Declaration><![CDATA[{warning 'add method implementation '}
 METHOD Mode
 VAR_INPUT
-	bAuto : BOOL;
-	bManual : BOOL;
+	//bAuto : BOOL;
+	//bManual : BOOL;
 	//eMode	: E_Mode; //should I read this value Directly from the VirtualControlBox?
 END_VAR
 VAR_OUTPUT
@@ -37,83 +55,108 @@ END_VAR
 
 VAR
 	//eMode : E_Mode;
-	//bAuto : BOOL;
-	//bManual : BOOL;
+	bAuto : BOOL;
+	bManual : BOOL;
 END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[//eMode := VirtualControlBox.eMode;
 //OUTPUTS.eMode := eMode;
 
-//bAuto := VirtualControlBox.bAuto;
-//bManual := VirtualControlBox.bManual;
+bAuto := VirtualControlBox.bAuto;
+bManual := VirtualControlBox.bManual;
+
 
 IF bAuto AND NOT bManual THEN
 	eMode := E_Mode.AUTO;
-	VirtualControlBox.strMode := 'AUTO';
+	Working.strMode := 'AUTO';
 ELSIF bManual AND NOT bAuto THEN
 	eMode := E_Mode.MANUAL;
-	VirtualControlBox.strMode := 'MANUAL';
+	Working.strMode := 'MANUAL';
 ELSE
 	eMode := E_Mode.OFF;
-	VirtualControlBox.strMode := 'OFF';
-END_IF]]></ST>
+	Working.strMode := 'OFF';
+END_IF
+
+Working.eMode := eMode;]]></ST>
       </Implementation>
     </Method>
     <Method Name="Status" Id="{3a8a03aa-b9d0-43d2-ac17-130746f0a45c}">
       <Declaration><![CDATA[{warning 'add method implementation '}
 METHOD Status
 VAR_INPUT
-	eMode	: E_Mode;
-	bStart	: BOOL;
-	bStop	: BOOL;
+	//eMode	: E_Mode;
+	//bStart	: BOOL;
+	//bStop	: BOOL;
 END_VAR
 VAR_OUTPUT
-	eStatus : E_Status := E_Status.NotReady;
+	//eStatus : E_Status := E_Status.NotReady;
+END_VAR
+VAR
+	eStatus : E_Status;
+	eMode : E_Mode;
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[CASE eStatus OF
+        <ST><![CDATA[eMode := Working.eMode;
+eStatus := Working.eStatus;
+CASE eStatus OF
 	E_Status.NotReady:
-		VirtualControlBox.strStatus := 'NotReady';
+		Working.strStatus := 'NotReady';
 		IF eMode <> E_Mode.OFF THEN
 			eStatus := E_Status.Ready;
 		END_IF
 	
 	E_Status.Ready:
-		VirtualControlBox.strStatus := 'Ready';
+		Working.strStatus := 'Ready';
 		IF eMode = E_Mode.OFF THEN
 			eStatus := E_Status.NotReady;
-		ELSIF bStart THEN
+		ELSIF VirtualControlBox.bStart THEN
 			eStatus := E_Status.Starting;
 		END_IF
 		
 	E_Status.Starting:
-		VirtualControlBox.strStatus := 'Starting';
-		IF bStart AND NOT bStop THEN //Add more start conditions?
+		Working.strStatus := 'Starting';
+		IF VirtualControlBox.bStart AND NOT VirtualControlBox.bStop THEN //Add more start conditions?
 			eStatus := E_Status.Running;	
 		ELSE
 			eStatus := E_Status.Ready;
 		END_IF
 		
 	E_Status.Running:	
-		VirtualControlBox.strStatus := 'Running';
-		IF bStop THEN
+		Working.strStatus := 'Running';
+		IF VirtualControlBox.bStop THEN
 			eStatus := E_Status.Stopping;
 		ELSIF eMode = E_Mode.AUTO THEN
-			IF NOT bStart THEN // ADD Clock signal
+			IF NOT VirtualControlBox.bStart THEN // ADD Clock signal
 				eStatus := E_Status.Stopping;
 			END_IF	
 		END_IF
 		
 	E_Status.Stopping:
-		VirtualControlBox.strStatus := 'Stopping';
+		Working.strStatus := 'Stopping';
 		//Add stop condition
 		eStatus := E_Status.NotReady;
 		
 	E_Status.Fault:
-		VirtualControlBox.strStatus := 'Fault';				
-END_CASE]]></ST>
+		Working.strStatus := 'Fault';				
+END_CASE
+
+Working.eStatus := eStatus;
+
+//Control Lights
+IF eStatus = E_Status.Running THEN
+	OUTPUTS.bLightGreen := TRUE;
+ELSE
+	OUTPUTS.bLightGreen := FALSE;
+END_IF
+
+IF eStatus = E_Status.Stopping OR eStatus = E_Status.Fault THEN
+	OUTPUTS.bLightRed := TRUE;
+ELSE
+	OUTPUTS.bLightRed := FALSE;
+END_IF
+]]></ST>
       </Implementation>
     </Method>
   </POU>

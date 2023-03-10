@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <Itf Name="I_Crane" Id="{01dae7f1-e59e-41ad-b3e5-147bab081d20}">
+    <Declaration><![CDATA[INTERFACE I_Crane
+]]></Declaration>
+    <Method Name="ControlValveOutput" Id="{7eb4ab72-8e01-4350-a744-d01a96c40922}">
+      <Declaration><![CDATA[METHOD ControlValveOutput
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="FLOW" Id="{f32959ff-f34f-4780-b7f9-aa2b2c1ef522}">
+      <Declaration><![CDATA[METHOD FLOW : REAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Position" Id="{66d8546f-60ff-4d45-ab20-a28057bb29f6}">
+      <Declaration><![CDATA[METHOD Position : ST_Position
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+    <Method Name="Pressure" Id="{d8ab2920-4eed-4dd6-a93c-596eb06fd31b}">
+      <Declaration><![CDATA[METHOD Pressure : REAL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+    </Method>
+  </Itf>
+</TcPlcObject>
