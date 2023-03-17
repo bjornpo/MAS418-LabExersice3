@@ -104,6 +104,9 @@
     <Compile Include="POUs\CraneControl.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\FU_Scale_Inputs.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>

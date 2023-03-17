@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FU_Scale_Inputs" Id="{bb59701a-6b46-4e16-b928-e79921db74f8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FU_Scale_Inputs : BOOL
+VAR_INPUT
+END_VAR
+VAR
+	fbScale : FB_12bIntToReal;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbScale(iInput:=INPUT.nXc, iMin:=0, iMax:=0.5, fOutput => ScaledInputs.fXc);
+fbScale(iInput:=INPUT.nPS, iMin:=0, iMax:=400, fOutput => ScaledInputs.fPS);
+fbScale(iInput:=INPUT.nPR, iMin:=0, iMax:=40, fOutput => ScaledInputs.fPR);
+fbScale(iInput:=INPUT.nPC_A, iMin:=0, iMax:=400, fOutput => ScaledInputs.fPC_A);
+fbScale(iInput:=INPUT.nPC_B, iMin:=0, iMax:=400, fOutput => ScaledInputs.fPC_B);
+fbScale(iInput:=INPUT.nPW_A, iMin:=0, iMax:=400, fOutput => ScaledInputs.fPW_A);
+fbScale(iInput:=INPUT.nPW_A1, iMin:=0, iMax:=400, fOutput => ScaledInputs.fPW_A1);
+fbScale(iInput:=INPUT.nPW_B, iMin:=0, iMax:=400, fOutput => ScaledInputs.fPW_B);
+fbScale(iInput:=INPUT.nPW_B1, iMin:=0, iMax:=400, fOutput => ScaledInputs.fPW_B1);
+fbScale(iInput:=INPUT.nPW_D, iMin:=0, iMax:=40, fOutput => ScaledInputs.fPW_D);
+fbScale(iInput:=INPUT.nQW, iMin:=-150, iMax:=150, fOutput => ScaledInputs.fQw);
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -14,6 +14,9 @@ VAR_GLOBAL
 	bStop AT %I*: BOOL;
 	bJoystick AT %I*: BOOL;
 	
+	//Encoder
+	nEncoder AT %I*: UDINT;
+	
 	//Analog Flow/pressure
 	nPS AT %I*: INT;
 	nPR AT %I*: INT;
@@ -29,6 +32,8 @@ VAR_GLOBAL
 	//Analog 
 	nXc AT %I*: INT;
 	//nJoy
+	nJoyX AT %I*: INT;
+	nJoyY AT %I*: INT;
 	
 	fCylinderPositionSensor : REAL;
 	fWinchEncodder : REAL;
