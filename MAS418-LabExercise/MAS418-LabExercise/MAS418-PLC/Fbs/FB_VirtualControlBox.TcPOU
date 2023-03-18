@@ -37,8 +37,8 @@ VAR
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[stJoystick := VirtualControlBox.stJOY;
-ScaledInputs.stJoystick := stJoystick;]]></ST>
+        <ST><![CDATA[ScaledInputs.stJoystick := VirtualControlBox.stJOY;
+//ScaledInputs.stJoystick := stJoystick;]]></ST>
       </Implementation>
     </Method>
     <Method Name="Mode" Id="{2f785f0e-97f8-462b-9ade-1633aef6ec69}">
@@ -144,18 +144,26 @@ END_CASE
 
 Working.eStatus := eStatus;
 
-//Control Lights
-IF eStatus = E_Status.Running THEN
-	OUTPUTS.bLightGreen := TRUE;
-ELSE
-	OUTPUTS.bLightGreen := FALSE;
-END_IF
+////Control Lights
+//IF eStatus = E_Status.Running THEN
+//	OUTPUTS.bGreenLed := TRUE;
+//	OUTPUTS.bEnableCylValve := TRUE;
+//	IF ScaledInputs.stJoystick.Topswitch THEN
+//		OUTPUTS.bEnableWinchValve := TRUE;
+//	ELSE
+//		OUTPUTS.bEnableWinchValve := FALSE;
+//	END_IF
+//ELSE
+//	OUTPUTS.bGreenLed := FALSE;
+//	OUTPUTS.bEnableCylValve := FALSE;
+//	OUTPUTS.bEnableWinchValve := FALSE;
+//END_IF
 
-IF eStatus = E_Status.Stopping OR eStatus = E_Status.Fault THEN
-	OUTPUTS.bLightRed := TRUE;
-ELSE
-	OUTPUTS.bLightRed := FALSE;
-END_IF
+//IF eStatus = E_Status.Stopping OR eStatus = E_Status.Fault THEN
+//	OUTPUTS.bRedLed := TRUE;
+//ELSE
+//	OUTPUTS.bRedLed := FALSE;
+//END_IF
 ]]></ST>
       </Implementation>
     </Method>

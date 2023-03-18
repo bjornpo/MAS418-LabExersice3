@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" ClassName="CNestedPlcProjDef">
 	<Project GUID="{3F95D0BB-692A-4D12-87CF-99B787A46E79}" Name="MAS418-PLC" PrjFilePath="..\..\MAS418-PLC\MAS418-PLC.plcproj" TmcFilePath="..\..\MAS418-PLC\MAS418-PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="MAS418-PLC\MAS418-PLC.tmc" TmcHash="{3D095B9C-616C-9384-9C7E-D7B3C3D96B86}">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="MAS418-PLC\MAS418-PLC.tmc" TmcHash="{1A15A000-09DA-CEF4-F6C2-62F4B1E1BA1B}">
 			<Name>MAS418-PLC Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -26,6 +26,11 @@
 				<Var>
 					<Name>INPUT.bJoystick</Name>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>INPUT.nEncoder</Name>
+					<Comment><![CDATA[Encoder]]></Comment>
+					<Type>UDINT</Type>
 				</Var>
 				<Var>
 					<Name>INPUT.nPS</Name>
@@ -82,17 +87,16 @@
 					<Name>INPUT.nJoyY</Name>
 					<Type>INT</Type>
 				</Var>
-				<Var>
-					<Name>INPUT.nEncoder</Name>
-					<Comment><![CDATA[Encoder]]></Comment>
-					<Type>UDINT</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
 				<Var>
 					<Name>OUTPUTS.bGreenLed</Name>
-					<Comment><![CDATA[Digital]]></Comment>
+					<Comment><![CDATA[bLightRed : BOOL := FALSE;
+bLightGreen : BOOL := FALSE;
+CylinderValve : REAL := 0; //initial value
+WinchValve : REAL := 0; //initial value
+Digital]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -169,6 +173,10 @@
 				<Link VarA="PlcTask Outputs^OUTPUTS.bEnableWinchValve" VarB="Channel 3^Output" Size="1"/>
 				<Link VarA="PlcTask Outputs^OUTPUTS.bGreenLed" VarB="Channel 1^Output" Size="1"/>
 				<Link VarA="PlcTask Outputs^OUTPUTS.bRedLed" VarB="Channel 2^Output" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 5 (EtherCAT)^Term 12 (EK1100)^Term 19 (EL4104)">
+				<Link VarA="PlcTask Outputs^OUTPUTS.nCylValveOut" VarB="AO Output Channel 2^Analog output"/>
+				<Link VarA="PlcTask Outputs^OUTPUTS.nWinchValveOut" VarB="AO Output Channel 1^Analog output"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>

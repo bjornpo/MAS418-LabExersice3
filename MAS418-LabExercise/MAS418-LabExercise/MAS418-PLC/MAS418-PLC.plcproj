@@ -76,10 +76,6 @@
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>
     </Compile>
-    <Compile Include="GVLs\NormalizedOutputs.TcGVL">
-      <SubType>Code</SubType>
-      <LinkAlways>true</LinkAlways>
-    </Compile>
     <Compile Include="GVLs\OUTPUTS.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>

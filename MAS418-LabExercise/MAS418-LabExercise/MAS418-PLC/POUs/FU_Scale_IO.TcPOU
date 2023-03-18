@@ -6,8 +6,6 @@ VAR_INPUT
 END_VAR
 VAR
 	fbScale : FB_12bIntToReal;
-	fbScaleOutputs : FB_ValveOutput;
-	stValveDeadband : ST_ValveDeadBand;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -23,20 +21,7 @@ fbScale(nInput:=INPUT.nPW_B1, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPW_B1
 fbScale(nInput:=INPUT.nPW_D, fMin:=0, fMax:=40, fOutput => ScaledInputs.fPW_D);
 fbScale(nInput:=INPUT.nQW, fMin:=-150, fMax:=150, fOutput => ScaledInputs.fQw);
 
-//Outputs
-fbScaleOutputs(bEnable:=TRUE, 
-			bDeadBandCompOn:=TRUE, 
-			stValveDeadBand:=stValveDeadband, 
-			fNormalizedInput:=NormalizedOutputs.fCylValveOut, 
-			bEnableValveOutput=>TRUE, 
-			nOutput=>OUTPUTS.nCylValveOut);
-			
-fbScaleOutputs(bEnable:=TRUE, 
-			bDeadBandCompOn:=TRUE, 
-			stValveDeadBand:=stValveDeadband, 
-			fNormalizedInput:=NormalizedOutputs.fWinchValveOut, 
-			bEnableValveOutput=>TRUE, 
-			nOutput=>OUTPUTS.nWinchValveOut);]]></ST>
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

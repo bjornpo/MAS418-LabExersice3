@@ -19,9 +19,9 @@ END_VAR
 ]]></Declaration>
     <Implementation>
       <ST><![CDATA[//fRange := INT_TO_LREAL(iMax-iMin);
-fRange := iMax-iMin;
+fRange := fMax-fMin;
 fScale := fRange/fResolution12Bit;
-fOutput := INT_TO_LREAL(iInput) * fScale + iMin;]]></ST>
+fOutput := INT_TO_LREAL(nInput) * fScale + fMin;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>
