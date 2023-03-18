@@ -44,7 +44,7 @@ END_IF
 fbScaleOutputs(bEnable:=bEnableCylinder, 
 			bDeadBandCompOn:=TRUE, 
 			stValveDeadBand:=stValveDeadband, 
-			fNormalizedInput:=ScaledInputs.stJoystick.Y, 
+			fNormalizedInput:=ScaledInputs.stJoystick.X, 
 			bEnableValveOutput=>OUTPUTS.bEnableCylValve, 
 			nOutput=>OUTPUTS.nCylValveOut);
 			

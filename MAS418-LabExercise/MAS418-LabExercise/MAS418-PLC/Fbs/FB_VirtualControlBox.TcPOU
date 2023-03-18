@@ -38,6 +38,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[ScaledInputs.stJoystick := VirtualControlBox.stJOY;
+
+ScaledInputs.stJoystick.Topswitch := VirtualControlBox.stJOY.Topswitch;
 //ScaledInputs.stJoystick := stJoystick;]]></ST>
       </Implementation>
     </Method>

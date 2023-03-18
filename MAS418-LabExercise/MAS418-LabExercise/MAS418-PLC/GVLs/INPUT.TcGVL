@@ -3,9 +3,9 @@
   <GVL Name="INPUT" Id="{007293b3-fdf6-41fe-bba9-66bdde70b7fa}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	nJoyXRaw : INT;
-	nJoyYRaw : INT;
-	bJoySW 	: BOOL;
+//	nJoyXRaw : INT;
+//	nJoyYRaw : INT;
+//	bJoySW 	: BOOL;
 	
 	//Digital
 	bManual AT %I*: BOOL;
@@ -35,10 +35,10 @@ VAR_GLOBAL
 	nJoyX AT %I*: INT;
 	nJoyY AT %I*: INT;
 	
-	fCylinderPositionSensor : REAL;
-	fWinchEncodder : REAL;
-	stPressureSensors : ST_PressureSensors;
-	WinchInletFlow : REAL;
+//	fCylinderPositionSensor : REAL;
+//	fWinchEncodder : REAL;
+//	stPressureSensors : ST_PressureSensors;
+//	WinchInletFlow : REAL;
 	//I
 END_VAR]]></Declaration>
   </GVL>

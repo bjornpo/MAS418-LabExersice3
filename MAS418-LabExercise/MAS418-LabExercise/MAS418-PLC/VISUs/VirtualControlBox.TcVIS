@@ -1866,7 +1866,7 @@
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"OUTPUTS.bLightRed"</v>
+                          <v n="Value">"OUTPUTS.bRedLed"</v>
                         </o>
                       </l>
                     </o>
@@ -1960,7 +1960,7 @@
                         </o>
                         <o>
                           <v n="Id">743958181L</v>
-                          <v n="Value">"OUTPUTS.bLightGreen"</v>
+                          <v n="Value">"OUTPUTS.bGreenLed"</v>
                         </o>
                       </l>
                     </o>

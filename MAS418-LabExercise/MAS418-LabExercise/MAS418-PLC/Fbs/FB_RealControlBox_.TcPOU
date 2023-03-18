@@ -20,15 +20,25 @@ VAR_OUTPUT
 END_VAR
 VAR
 	fbJoystickInputScaling : FB_JoystickInputScaling;
-	nXInput: INT;
-	nYInput: INT;
+	stJoystickInputScaling : ST_JoystickInputScaling;
+	//nXInput: INT;
+	//nYInput: INT;
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[stJoystick := VirtualControlBox.stJOY;
-ScaledInputs.stJoystick := stJoystick;
+        <ST><![CDATA[//stJoystick := VirtualControlBox.stJOY;
+fbJoystickInputScaling(bEnable:=TRUE, 
+		nRawInput:=INPUT.nJoyX, 
+		stJoystickInputScaling:=stJoystickInputScaling, 
+		fNormalizedOutput => ScaledInputs.stJoystick.X);
 
-//ScaledInputs.stJoystick.X := ]]></ST>
+		
+fbJoystickInputScaling(bEnable:=TRUE, 
+		nRawInput:=INPUT.nJoyY, 
+		stJoystickInputScaling:=stJoystickInputScaling, 
+		fNormalizedOutput => ScaledInputs.stJoystick.Y);
+
+ScaledInputs.stJoystick.Topswitch := INPUT.bJoystick;]]></ST>
       </Implementation>
     </Method>
     <Method Name="Mode" Id="{ce8733aa-10d3-4163-8520-025fe01b837c}">
@@ -46,8 +56,8 @@ END_VAR]]></Declaration>
         <ST><![CDATA[//eMode := VirtualControlBox.eMode;
 //OUTPUTS.eMode := eMode;
 
-bAuto := VirtualControlBox.bAuto;
-bManual := VirtualControlBox.bManual;
+bAuto := INPUT.bAuto;
+bManual := INPUT.bManual;
 
 
 IF bAuto AND NOT bManual THEN
