@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FU_Scale_IO" Id="{bb59701a-6b46-4e16-b928-e79921db74f8}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FU_Scale_IO : BOOL
+VAR_INPUT
+END_VAR
+VAR
+	fbScale : FB_12bIntToReal;
+	fbScaleOutputs : FB_ValveOutput;
+	stValveDeadband : ST_ValveDeadBand;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbScale(nInput:=INPUT.nXc, fMin:=0, fMax:=0.5, fOutput => ScaledInputs.fXc);
+fbScale(nInput:=INPUT.nPS, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPS);
+fbScale(nInput:=INPUT.nPR, fMin:=0, fMax:=40, fOutput => ScaledInputs.fPR);
+fbScale(nInput:=INPUT.nPC_A, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPC_A);
+fbScale(nInput:=INPUT.nPC_B, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPC_B);
+fbScale(nInput:=INPUT.nPW_A, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPW_A);
+fbScale(nInput:=INPUT.nPW_A1, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPW_A1);
+fbScale(nInput:=INPUT.nPW_B, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPW_B);
+fbScale(nInput:=INPUT.nPW_B1, fMin:=0, fMax:=400, fOutput => ScaledInputs.fPW_B1);
+fbScale(nInput:=INPUT.nPW_D, fMin:=0, fMax:=40, fOutput => ScaledInputs.fPW_D);
+fbScale(nInput:=INPUT.nQW, fMin:=-150, fMax:=150, fOutput => ScaledInputs.fQw);
+
+//Outputs
+fbScaleOutputs(bEnable:=TRUE, 
+			bDeadBandCompOn:=TRUE, 
+			stValveDeadBand:=stValveDeadband, 
+			fNormalizedInput:=NormalizedOutputs.fCylValveOut, 
+			bEnableValveOutput=>TRUE, 
+			nOutput=>OUTPUTS.nCylValveOut);
+			
+fbScaleOutputs(bEnable:=TRUE, 
+			bDeadBandCompOn:=TRUE, 
+			stValveDeadBand:=stValveDeadband, 
+			fNormalizedInput:=NormalizedOutputs.fWinchValveOut, 
+			bEnableValveOutput=>TRUE, 
+			nOutput=>OUTPUTS.nWinchValveOut);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

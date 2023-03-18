@@ -3,10 +3,10 @@
   <GVL Name="OUTPUTS" Id="{f05c9dff-8b1b-4b3d-9ed0-00bb52c26cf3}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
-	bLightRed : BOOL := FALSE;
-	bLightGreen : BOOL := FALSE;
-	CylinderValve : REAL := 0; //initial value
-	WinchValve : REAL := 0; //initial value
+	//bLightRed : BOOL := FALSE;
+	//bLightGreen : BOOL := FALSE;
+	//CylinderValve : REAL := 0; //initial value
+	//WinchValve : REAL := 0; //initial value
 	
 	//Digital
 	bGreenLed AT %Q*: BOOL;

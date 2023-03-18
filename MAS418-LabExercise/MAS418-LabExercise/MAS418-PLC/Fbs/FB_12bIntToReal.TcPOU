@@ -3,9 +3,9 @@
   <POU Name="FB_12bIntToReal" Id="{1b3ce1dd-edc9-4a70-98ab-1646869ca8ac}" SpecialFunc="None">
     <Declaration><![CDATA[FUNCTION_BLOCK FB_12bIntToReal
 VAR_INPUT
-	iInput : INT;
-	iMin	: LREAL;
-	iMax	: LREAL;
+	nInput : INT;
+	fMin	: LREAL;
+	fMax	: LREAL;
 	
 END_VAR
 VAR_OUTPUT
@@ -18,9 +18,10 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fRange := INT_TO_LREAL(iMax-iMin);
+      <ST><![CDATA[//fRange := INT_TO_LREAL(iMax-iMin);
+fRange := iMax-iMin;
 fScale := fRange/fResolution12Bit;
-fOutput := INT_TO_LREAL(iInput) * fScale + INT_TO_REAL(iMin);]]></ST>
+fOutput := INT_TO_LREAL(iInput) * fScale + iMin;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

@@ -11,6 +11,9 @@ END_VAR
     <Implementation>
       <ST><![CDATA[fbControlBox(eControlBox := E_ControlBox.VirtualControlBox); // set to true to use real controlbox
 
+FU_Scale_IO();
+
+
 //IF Working.eStatus = E_Status.Running THEN
 //	// manual run
 //	IF Working.eMode = E_Mode.MANUAL THEN
