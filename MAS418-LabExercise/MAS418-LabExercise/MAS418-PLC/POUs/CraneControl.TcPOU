@@ -13,7 +13,7 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[fbControlBox(eControlBox := E_ControlBox.VirtualControlBox); // set to true to use real controlbox
+      <ST><![CDATA[fbControlBox(eControlBox := E_ControlBox.RealControlBox); // set to true to use real controlbox
 
 FU_Scale_IO();
 
