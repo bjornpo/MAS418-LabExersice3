@@ -32,7 +32,7 @@ END_IF
 IF NOT(bEnable) THEN
 	fNormalizedOutput := 0.0;
 ELSE
-	fNormalizedOutput := LIMIT(stJoystickInputScaling.fMinOutputValue, fTempOutput, stJoystickInputScaling.fNeutralOutputValue);
+	fNormalizedOutput := LIMIT(stJoystickInputScaling.fMinOutputValue, fTempOutput, stJoystickInputScaling.fMaxOutputValue);
 END_IF
 
 ]]></ST>

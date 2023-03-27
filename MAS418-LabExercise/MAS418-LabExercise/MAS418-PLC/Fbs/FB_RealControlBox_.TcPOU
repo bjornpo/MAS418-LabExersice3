@@ -95,13 +95,13 @@ CASE eStatus OF
 		Working.strStatus := 'Ready';
 		IF eMode = E_Mode.OFF THEN
 			eStatus := E_Status.NotReady;
-		ELSIF VirtualControlBox.bStart THEN
+		ELSIF INPUT.bStart THEN
 			eStatus := E_Status.Starting;
 		END_IF
 		
 	E_Status.Starting:
 		Working.strStatus := 'Starting';
-		IF VirtualControlBox.bStart AND NOT VirtualControlBox.bStop THEN //Add more start conditions?
+		IF INPUT.bStart AND NOT INPUT.bStop THEN //Add more start conditions?
 			eStatus := E_Status.Running;	
 		ELSE
 			eStatus := E_Status.Ready;
@@ -109,10 +109,10 @@ CASE eStatus OF
 		
 	E_Status.Running:	
 		Working.strStatus := 'Running';
-		IF VirtualControlBox.bStop THEN
+		IF INPUT.bStop THEN
 			eStatus := E_Status.Stopping;
 		ELSIF eMode = E_Mode.AUTO THEN
-			IF NOT VirtualControlBox.bStart THEN // ADD Clock signal
+			IF NOT INPUT.bStart THEN // ADD Clock signal
 				eStatus := E_Status.Stopping;
 			END_IF	
 		END_IF
